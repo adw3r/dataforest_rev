@@ -74,7 +74,7 @@ def post(session, captcha_answer: str, csrf_token: str | None = None):
         'x-requested-with': 'XMLHttpRequest',
         'x-xsrf-token': xsrf_token,
     }
-    data = '------WebKitFormBoundaryzAA70EnoU5pGuM3F\r\nContent-Disposition: form-data; name="name"\r\n\r\ncontact me https://t.me/adw3r\r\n------WebKitFormBoundaryzAA70EnoU5pGuM3F\r\nContent-Disposition: form-data; name="emails[]"\r\n\r\nwezxasqw@gmail.com\r\n------WebKitFormBoundaryzAA70EnoU5pGuM3F\r\nContent-Disposition: form-data; name="phones[]"\r\n\r\n1231231234\r\n------WebKitFormBoundaryzAA70EnoU5pGuM3F\r\nContent-Disposition: form-data; name="additional_info"\r\n\r\nhttps://t.me/adw3r contact me\r\n------WebKitFormBoundaryzAA70EnoU5pGuM3F\r\nContent-Disposition: form-data; name="g_recaptcha_response"\r\n\r\ncap_field\r\n------WebKitFormBoundaryzAA70EnoU5pGuM3F--\r\n'
+    data = '------WebKitFormBoundaryzAA70EnoU5pGuM3F\r\nContent-Disposition: form-data; name="name"\r\n\r\ncontact me https://t.me/adw3r\r\n------WebKitFormBoundaryzAA70EnoU5pGuM3F\r\nContent-Disposition: form-data; name="emails[]"\r\n\r\nwezxasqw@gmail.com\r\n------WebKitFormBoundaryzAA70EnoU5pGuM3F\r\nContent-Disposition: form-data; name="phones[]"\r\n\r\n1231231234\r\n------WebKitFormBoundaryzAA70EnoU5pGuM3F\r\nContent-Disposition: form-data; name="additional_info"\r\n\r\nhttps://github.com/adw3r/dataforest_rev\r\n------WebKitFormBoundaryzAA70EnoU5pGuM3F\r\nContent-Disposition: form-data; name="g_recaptcha_response"\r\n\r\ncap_field\r\n------WebKitFormBoundaryzAA70EnoU5pGuM3F--\r\n'
     data = data.replace('cap_field', captcha_answer)
     response = session.post('https://dataforest.hurma.work/api/v1/public-vacancies/12', headers=headers, data=data)
     return response
@@ -113,5 +113,5 @@ def threaded_main():
 
 if __name__ == '__main__':
     res = main()
-    # if res:
-    #     threaded_main()
+    if res:
+        threaded_main()
